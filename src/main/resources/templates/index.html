@@ -5,21 +5,75 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Your Website Title</title>
+
+    <style>
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+          text-align: center;
+          margin: 20px;
+        }
+
+
+        h3 {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+        }
+
+
+        h3 span {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+          color: #333;
+        }
+
+
+        h1 {
+          color: #333;
+          margin-bottom: 20px;
+        }
+
+
+        a {
+          text-decoration: none;
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 4px;
+          font-size: 16px;
+          margin-right: 10px;
+        }
+
+        a:hover {
+          background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <h3 th:if="${user != null}">
-    <span th:text="${'Current user: ' + user.username }"></span><br>
-    <span th:text="${'First Name: ' + user.firstName }"></span><br>
+    <span th:text="${'Current user: ' + user.username }"></span>
+    <span th:text="${'First Name: ' + user.firstName }"></span>
     <span th:text="${'Last Name: ' + user.lastName }"></span>
-    <span th:text="${'Last Name: ' + user.dateOfBirth }"></span>
-    <span th:text="${'Last Name: ' + user.bio }"></span>
+    <span th:text="${'Date of Birth: ' + user.dateOfBirth }"></span>
+    <span th:text="${'Bio : ' + user.bio }"></span>
 </h3>
-<h1>Welcome to DinoBook, the best home for dinos on the internet!</h1>
+<h1>Welcome to our new website created by Spring Boot</h1>
 
 <a th:if="!${user}" href="/login">Log In</a>
-<br>
-<a th:if="!${user}" href="/signup">Or Sign Up</a>
+<a th:if="!${user}" href="/signup">Sign Up</a>
 <a th:if="${user}" href="/logout">Log Out</a>
 </body>
 </html>

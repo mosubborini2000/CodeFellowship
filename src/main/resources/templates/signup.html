@@ -2,10 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="signup.css">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="text"] /* Corrected input type for bio */ {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
 <h1>Sign Up!</h1>
@@ -19,22 +80,20 @@
   <input type="password" name="password" id="password">
 
   <br>
-  <label for="firstName">firstName</label>
-  <input type="firstName" name="firstName" id="firstName">
+  <label for="firstName">First Name</label>
+  <input type="text" name="firstName" id="firstName">
 
   <br>
-  <label for="lastName">lastName</label>
-  <input type="lastName" name="lastName" id="lastName">
-
-
-  <br>
-  <label for="dateOfBirth">dateOfBirth</label>
-  <input type="dateOfBirth" name="dateOfBirth" id="dateOfBirth">
-
+  <label for="lastName">Last Name</label>
+  <input type="text" name="lastName" id="lastName">
 
   <br>
-  <label for="bio">bio</label>
-  <input type="bio" name="bio" id="bio">
+  <label for="dateOfBirth">Date of Birth</label>
+  <input type="date" name="dateOfBirth" id="dateOfBirth">
+
+  <br>
+  <label for="bio">Bio</label>
+  <input type="text" name="bio" id="bio">
 
   <input type="submit" value="Sign Up">
 </form>
