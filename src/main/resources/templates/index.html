@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h3 th:if="${user != null}">
+    <span th:text="${'Current user: ' + user.username }"></span><br>
+    <span th:text="${'First Name: ' + user.firstName }"></span><br>
+    <span th:text="${'Last Name: ' + user.lastName }"></span>
+    <span th:text="${'Last Name: ' + user.dateOfBirth }"></span>
+    <span th:text="${'Last Name: ' + user.bio }"></span>
+</h3>
+<h1>Welcome to DinoBook, the best home for dinos on the internet!</h1>
+
+<a th:if="!${user}" href="/login">Log In</a>
+<br>
+<a th:if="!${user}" href="/signup">Or Sign Up</a>
+<a th:if="${user}" href="/logout">Log Out</a>
+</body>
+</html>
