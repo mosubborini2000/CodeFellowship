@@ -63,13 +63,15 @@
     </style>
 </head>
 <body>
-<h3 th:if="${user != null}">
-    <span th:text="${'Current user: ' + user.username }"></span>
-    <span th:text="${'First Name: ' + user.firstName }"></span>
-    <span th:text="${'Last Name: ' + user.lastName }"></span>
-    <span th:text="${'Date of Birth: ' + user.dateOfBirth }"></span>
-    <span th:text="${'Bio : ' + user.bio }"></span>
-</h3>
+<div th:replace="/fragments/nav-header :: h3"></div>
+<div th:replace="/fragments/nav-header :: site-user"></div>
+<!--<h3 th:if="${user != null}">-->
+<!--    <span th:text="${'Current user: ' + user.username }"></span>-->
+<!--    <span th:text="${'First Name: ' + user.firstName }"></span>-->
+<!--    <span th:text="${'Last Name: ' + user.lastName }"></span>-->
+<!--    <span th:text="${'Date of Birth: ' + user.dateOfBirth }"></span>-->
+<!--    <span th:text="${'Bio : ' + user.bio }"></span>-->
+<!--</h3>-->
 <h1>Welcome to our new website created by Spring Boot</h1>
 
 <a th:if="!${user}" href="/login">Log In</a>

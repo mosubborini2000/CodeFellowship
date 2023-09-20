@@ -16,3 +16,8 @@ Our WebSecurityConfig class extends WebSecurityConfigurerAdapter, allowing us to
 BCrypt Password Encoder:
 
 Passwords are securely encoded using the BCryptPasswordEncoder to safeguard user credentials.
+- I created Post Entity and user can add post then render the post in web page with time that user posted
+- you can see  personal data in about users by searching by id
+- Use Spring Security to authorize or restrict users from seeing other users's private data
+- Create non-whitelabel error pages for better error messaging
+- Make Thymeleaf fragments for reusable, maintainable front-end code
