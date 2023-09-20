@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Website Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        span {
+            margin-right: 10px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My profile</h1>
+<div th:replace="/fragments/nav-header :: site-user"></div>
+<!--<div th:replace="/fragments/error-fragment :: user-error"></div>-->
+<h1>Welcome to our new website created by Spring Boot</h1>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg8keaWuTWemET3-1mWqZae05N8W6SLGgGg&usqp=CAU" alt="Profile Picture" style="max-width: 100px; margin-top: 10px;">
+<h3 th:if="${user != null}">
+    <span th:text="${'Current user: ' + user.username }"></span>
+    <span th:text="${'First Name: ' + user.firstName }"></span>
+    <span th:text="${'Last Name: ' + user.lastName }"></span>
+    <span th:text="${'Date of Birth: ' + user.dateOfBirth }"></span>
+    <span th:text="${'Bio : ' + user.bio }"></span>
+</h3>
+<tr th:each="post : ${post}">
+    <td th:text="'My posts: ' + ${post.body}"></td>
+    <td th:text="'date: ' + ${post.createdAt}"></td>
+</tr>
+
+<h1>Add new Post</h1>
+<form th:action="@{/addPost}" method="post">
+    <!--        <input type="hidden" name="id" th:value="${posts.id}" required readonly hidden />-->
+    <label>post:</label>
+    <input type="text" name="body" placeholder="" required />
+<!--    <label>date created:</label>-->
+<!--    <input type="date" name="localDate" placeholder="" required />-->
+    <input type="submit" value="addPost" />
+</form>
+
+<a th:if="!${user}" href="/login">Log In</a>
+<a th:if="!${user}" href="/signup">Sign Up</a>
+<a th:if="${user}" href="/logout">Log Out</a>
+
+</body>
+</html>

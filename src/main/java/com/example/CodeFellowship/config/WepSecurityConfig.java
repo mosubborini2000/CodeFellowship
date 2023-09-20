@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -32,19 +33,21 @@ public class WepSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/userInfo", "/login", "/signup").permitAll()
+                .antMatchers("/","/login", "/signup").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
                 .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/myprofile", true)
                 .failureUrl("/login?error=true") // Update the failure URL
                 .and()
                 .logout()
-                .logoutUrl("/perform_logout")
+//              .logoutUrl("/perform_logout")
+//              I comment this because when i log out the session and cookies still when i logged out and type in url /myprofile will give my profile info , i searched about it and I got that i should comment this to delete the cookies without need to exit the browser
                 .deleteCookies("JSESSIONID");
+
     }
 
 
