@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All Post From followed users : </title>
+</head>
+<body>
+<h1>All Post From followed users : </h1>
+
+<ul th:each="post : ${posts}">
+    <li>
+        <a th:href="@{'/users/' + ${post.applicationUser.id}}" th:text="${'User : ' + post.applicationUser.username}"></a>
+        <p th:text="${post.body}"></p>
+    </li>
+</ul>
+</body>
+</html>

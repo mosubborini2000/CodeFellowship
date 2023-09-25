@@ -16,6 +16,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -54,6 +55,22 @@ public class PostController {
 
 
         return "users.html";
+    }
+    @GetMapping("/users")
+    public String getAllUsers(Principal p, Model m) {
+        if (p != null) {
+//            String username = p.getName();
+//            ApplicationUser user = applicationUserRepo.findByUsername(username);
+//            m.addAttribute("user", user);
+            List<ApplicationUser> applicationUser=applicationUserRepo.findAll();
+            m.addAttribute("applicationUser", applicationUser);
+        }
+
+//        m.addAttribute("post", applicationUser.getPostList());
+
+
+
+        return "allUsers.html";
     }
 
     @PostMapping("/addPost")
