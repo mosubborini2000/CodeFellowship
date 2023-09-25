@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -23,8 +24,35 @@ public class ApplicationUser implements UserDetails {
 
 
 
+
     @OneToMany(mappedBy = "applicationUser" ,cascade = CascadeType.ALL)
     List<Post>postList;
+
+    public Set<ApplicationUser> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<ApplicationUser> followers) {
+        this.followers = followers;
+    }
+
+    public Set<ApplicationUser> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Set<ApplicationUser> following) {
+        this.following = following;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "following_relations",
+            joinColumns = {@JoinColumn(name = "follower_id")},
+            inverseJoinColumns = {@JoinColumn(name = "following_id")}
+    )
+    Set<ApplicationUser> followers;
+    @ManyToMany(mappedBy = "followers")
+    Set<ApplicationUser> following;
 
     public ApplicationUser(String username, String password, String firstName, String lastName, String dateOfBirth, String bio) {
         this.username = username;

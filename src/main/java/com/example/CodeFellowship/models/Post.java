@@ -44,6 +44,11 @@ public class Post {
         this.createdAt = createdAt;
     }
 
+    public ApplicationUser getApplicationUser() {
+        return applicationUser;
+    }
 
-
+    public void setApplicationUser(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
+    }
 }

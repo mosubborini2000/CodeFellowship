@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul th:each="user:${applicationUser}">
+    <a th:href="@{'/users/'+${user.id}}">
+        <li>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg8keaWuTWemET3-1mWqZae05N8W6SLGgGg&usqp=CAU" alt="Profile Picture" style="max-width: 100px; margin-top: 10px;">
+            <h2 th:text="${user.username}"></h2>
+            <h2 th:text="${user.bio}"></h2>
+        </li>
+    </a>
+</ul>
+</body>
+</html>

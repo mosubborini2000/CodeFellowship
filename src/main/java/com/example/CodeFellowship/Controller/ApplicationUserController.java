@@ -52,20 +52,17 @@ public class ApplicationUserController {
     public RedirectView createUser(String username, String password, String firstName, String lastName, String dateOfBirth, String bio) {
 
         ApplicationUser user = new ApplicationUser();
+
         user.setUsername(username);
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setDateOfBirth(dateOfBirth);
         user.setBio(bio);
-
         String encryptedPassword = passwordEncoder.encode(password);
         user.setPassword(encryptedPassword);
-
         applicationUserRepo.save(user);
-
         authWithHttpServletRequest(username,password);
-
-        return new RedirectView("/");
+        return new RedirectView("/myprofile");
     }
 
     public void authWithHttpServletRequest(String username, String password) {
